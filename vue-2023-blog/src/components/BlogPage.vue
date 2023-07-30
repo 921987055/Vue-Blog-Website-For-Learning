@@ -1,91 +1,78 @@
 <template>
   <el-container>
     <el-header>
-        <div>
-            <el-avatar fit="fill" shape="square">
+      <el-row>
+        <el-col :span="12">
+          <el-avatar fit="fill" shape="square">
                 <img src="../assets/logo.png" alt="blog-icon">
             </el-avatar>
             <span>顾和覃的博客</span>
-        </div>
+        </el-col>
+        <el-col :span="12">
+          <el-menu
+      mode="horizontal"
+      class="el-menu-solid"
+      background-color="#545c64"
+      color="#fff"
+      active-text-color="#ffd04b"
+      @select="HandleSelect">
+      <el-menu-item index="1">
+      <template slot="title">
+        <i class="el-icon-user-solid"></i>
+        <span>About</span>
+      </template>
+      </el-menu-item>
+
+      <el-menu-item index="2">
+        <i class="el-icon-s-platform"></i>
+        <span>Works</span>
+      </el-menu-item>
+
+      <el-menu-item index="3">
+        <i class="el-icon-upload"></i>
+        <router-link to="/posts">Posts</router-link>
+      </el-menu-item>
+
+      <el-menu-item index="4">
+        <i class="el-icon-loading"></i>
+        <span>Github Page</span>
+      </el-menu-item>
+      </el-menu>
+        </el-col>
+      </el-row>
     </el-header>
 
-
-    <el-container>
-        <el-aside>
-        <el-menu
-      default-active="2"
-      class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose">
-      <el-submenu index="1">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>导航一</span>
-        </template>
-        <el-menu-item-group>
-          <template slot="title">分组一</template>
-          <el-menu-item index="1-1">选项1</el-menu-item>
-          <el-menu-item index="1-2">选项2</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="1-3">选项3</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="1-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="1-4-1">选项1</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-      <el-menu-item index="2">
-        <i class="el-icon-menu"></i>
-        <span slot="title">导航二</span>
-      </el-menu-item>
-      <el-menu-item index="3" disabled>
-        <i class="el-icon-document"></i>
-        <span slot="title">导航三</span>
-      </el-menu-item>
-      <el-menu-item index="4">
-        <i class="el-icon-setting"></i>
-        <span slot="title">导航四</span>
-      </el-menu-item>
-    </el-menu>
-    </el-aside>
-
-    <el-container>
-        <el-main>
-        <el-row>
-        <el-col :span="8" v-for="(o, index) in 2" :key="o" :offset="index > 0 ? 2 : 0">
-            <el-card :body-style="{ padding: '0px' }" shadow="hover">
-            <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" class="image">
-            <div style="padding: 14px;">
-                <span>好吃的汉堡</span>
-                <div class="bottom clearfix">
-                <time class="time">{{ currentDate }}</time>
-                <el-button type="text" class="button">操作按钮</el-button>
-                </div>
-            </div>
-            </el-card>
-        </el-col>
-        </el-row>
-    </el-main>
-
-    <el-footer>
-        <div>this is footer</div>
-    </el-footer>
-    </el-container>
-    </el-container>
+    <router-view></router-view>
+ 
   </el-container>
 </template>
 
 <script>
 export default {
     name: 'BlogPage',
+    dara() {
+      return {
+        flag: false
+      }
+    },
     methods: {
-      handleOpen(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
+      HandleSelect(index) {
+        console.log(index)
+        switch(index) {
+          case '1' : this.$router.push('/about').catch(err => console.log(err)); break;
+          case '2' : this.$router.push('/works').catch(err => console.log(err)); break;
+          case '3' : this.$router.push('/posts').catch(err => console.log(err)); break;
+          case '4' : window.location.href = 'https://github.com/921987055/Vue-Blog-Website-For-Learning'; break;
+          default: break;
+        }
       }
     }
 }
 </script>
+
+<style scoped>
+* {
+  background-color: #545c64;
+  color: #fff;
+}
+</style>
