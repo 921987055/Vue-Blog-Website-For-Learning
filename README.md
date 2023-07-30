@@ -11,6 +11,7 @@ Componment:
 
 - axios
 - element-ui
+- vue-router@3
 
 ### back-end
 
