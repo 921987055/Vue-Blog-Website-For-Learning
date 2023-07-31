@@ -1,19 +1,19 @@
 <template>
   <el-container>
-    <el-header>
-      <el-row>
-        <el-col :span="12">
+    <el-header class="el-col-header">
+      <el-row type="flex" justify="space-between">
+        <el-col :span="10">
           <el-avatar fit="fill" shape="square">
-                <img src="../assets/logo.png" alt="blog-icon">
+            <img src="../assets/logo.png" alt="blog-icon">
             </el-avatar>
             <span>顾和覃的博客</span>
         </el-col>
-        <el-col :span="12">
+        <el-col :span="10">
           <el-menu
       mode="horizontal"
       class="el-menu-solid"
-      background-color="#545c64"
-      color="#fff"
+      background-color="#8d0801"
+      color="#001427"
       active-text-color="#ffd04b"
       @select="HandleSelect">
       <el-menu-item index="1">
@@ -72,7 +72,10 @@ export default {
 
 <style scoped>
 * {
-  background-color: #545c64;
-  color: #fff;
+  color: #001427;
+}
+
+.el-col-header {
+  background-color: #bf0603;
 }
 </style>
