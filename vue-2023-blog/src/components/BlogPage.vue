@@ -34,7 +34,7 @@
       </el-menu-item>
 
       <el-menu-item index="4">
-        <i class="el-icon-loading"></i>
+        <i class="el-icon-upload"></i>
         <span>Github Page</span>
       </el-menu-item>
       </el-menu>
@@ -42,7 +42,7 @@
       </el-row>
     </el-header>
 
-    <router-view></router-view>
+    <router-view @ShowBlogContent="ShowBlogContent"></router-view>
  
   </el-container>
 </template>
@@ -65,6 +65,10 @@ export default {
           case '4' : window.location.href = 'https://github.com/921987055/Vue-Blog-Website-For-Learning'; break;
           default: break;
         }
+      },
+      ShowBlogContent(data) {
+        // console.log('Blog Content id: ', data.blog_id);
+        this.$router.push(`/blog/${data.blog_id}`).catch(err => console.log(err));
       }
     }
 }
