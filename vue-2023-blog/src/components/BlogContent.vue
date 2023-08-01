@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 
 export default {
     name: 'BlogContent',
@@ -20,7 +19,7 @@ export default {
     },
     created() {
         this.blog_id = this.$route.params.blog_id;
-        axios.get('/api/findAll').then(res => {
+        this.axios.post('/api/findAll').then(res => {
             for(let item of res.data) {
                 if(item.blog_id == this.blog_id) {
                     this.blog_title = item.blog_title;
@@ -28,7 +27,7 @@ export default {
                     break;
                 }
             }
-        })
+        }).catch(err => console.log(err));
     }
 }
 </script>

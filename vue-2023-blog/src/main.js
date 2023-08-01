@@ -2,7 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import ElementUI from 'element-ui'
 import VueRouter from 'vue-router'
-// import axios from 'axios'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import 'element-ui/lib/theme-chalk/index.css' 
 
 import AboutComponent from '@/components/AboutComponent.vue'
@@ -21,6 +22,7 @@ const router = new VueRouter({
 
 Vue.use(ElementUI)
 Vue.use(VueRouter)
+Vue.use(VueAxios, axios)
 
 
 Vue.config.productionTip = false
