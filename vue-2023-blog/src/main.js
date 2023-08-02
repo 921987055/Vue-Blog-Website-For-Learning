@@ -6,10 +6,10 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import 'element-ui/lib/theme-chalk/index.css'
 
-import AboutComponent from '@/components/AboutComponent.vue'
-import PostComponent from '@/components/PostComponent.vue'
-import WorkComponent from '@/components/WorkComponent.vue'
-import BlogContent from '@/components/BlogContent.vue'
+const AboutComponent = () => import('@/components/AboutComponent.vue')
+const PostComponent = () => import('@/components/PostComponent.vue')
+const WorkComponent = () => import('@/components/WorkComponent.vue')
+const BlogContent = () => import('@/components/BlogContent.vue')
 
 const router = new VueRouter({
   routes: [
