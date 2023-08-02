@@ -4,7 +4,7 @@ import ElementUI from 'element-ui'
 import VueRouter from 'vue-router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import 'element-ui/lib/theme-chalk/index.css' 
+import 'element-ui/lib/theme-chalk/index.css'
 
 import AboutComponent from '@/components/AboutComponent.vue'
 import PostComponent from '@/components/PostComponent.vue'
@@ -28,6 +28,6 @@ Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
-  router
+  router,
+  render: h => h(App)
 }).$mount('#app')

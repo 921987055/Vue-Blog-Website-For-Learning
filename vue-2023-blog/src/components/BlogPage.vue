@@ -25,12 +25,12 @@
 
       <el-menu-item index="2">
         <i class="el-icon-s-platform"></i>
-        <span>Works</span>
+        <span>Blogs</span>
       </el-menu-item>
 
       <el-menu-item index="3">
         <i class="el-icon-upload"></i>
-        <router-link to="/posts">Posts</router-link>
+        <router-link to="/posts">PostsBlog</router-link>
       </el-menu-item>
 
       <el-menu-item index="4">
